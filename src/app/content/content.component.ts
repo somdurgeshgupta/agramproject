@@ -11,6 +11,7 @@ export class ContentComponent implements OnInit {
   items: any[] = [];
   filteredItems: any[] = [];
   paginatedItems: any[] = [];
+  // showCategories: boolean = false;
   searchTerm: string = '';
   showSortMenu: boolean = false;
   selectedCategories: any = {
