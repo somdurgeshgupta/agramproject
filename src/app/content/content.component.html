@@ -2,13 +2,14 @@
     <div class="row search-bar mb-4">
       <div class="col-12">
         <div class="input-group">
-          <input
-            type="text"
+            <input
             class="form-control with-icon"
-            placeholder="Search by name..."
+            type="text"
             [(ngModel)]="searchTerm"
-            (ngModelChange)="getSearchResults()"
+            (input)="onSearchTermChange($event)"
+            placeholder="Search by name..."
           />
+          
         </div>
       </div>
     </div>

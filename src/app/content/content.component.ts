@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 import { DataService } from '../data.service';
 
 @Component({
@@ -12,6 +14,7 @@ export class ContentComponent implements OnInit {
   filteredItems: any[] = [];
   paginatedItems: any[] = [];
   searchTerm: string = '';
+  searchTermSubject: Subject<string> = new Subject<string>(); // Subject for debouncing
   showSortMenu: boolean = false;
   selectedCategories: any = {
     'e-Voucher': false,
@@ -36,6 +39,12 @@ export class ContentComponent implements OnInit {
     this.calculateTotalPages();
     this.updatePagination();
     this.updateSelectedCategoryCount();
+
+    // Subscribe to the search term subject with debounce
+    this.searchTermSubject.pipe(debounceTime(200)).subscribe((searchTerm) => {
+      this.searchTerm = searchTerm;
+      this.getSearchResults();
+    });
   }
 
   toggleSort(): void {
@@ -53,7 +62,14 @@ export class ContentComponent implements OnInit {
     });
     console.log('After sorting:', this.filteredItems);
     this.showSortMenu = false;
-    this.updatePagination(); 
+    this.updatePagination();
+  }
+
+  onSearchTermChange(event: Event): void {
+    const target = event.target as HTMLInputElement; // Type assertion
+    if (target && target.value !== null) {
+      this.searchTermSubject.next(target.value);
+    }
   }
   
 
@@ -61,16 +77,17 @@ export class ContentComponent implements OnInit {
     this.page = 1;
     let results = [...this.items];
 
-    if (Object.values(this.selectedCategories).some(value => value)) {
-      results = results.filter(item =>
+    if (Object.values(this.selectedCategories).some((value) => value)) {
+      results = results.filter((item) =>
         Object.keys(this.selectedCategories).some(
-          category => this.selectedCategories[category] && item.category === category
+          (category) =>
+            this.selectedCategories[category] && item.category === category
         )
       );
     }
 
     if (this.searchTerm) {
-      results = results.filter(item =>
+      results = results.filter((item) =>
         item.name.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
     }
