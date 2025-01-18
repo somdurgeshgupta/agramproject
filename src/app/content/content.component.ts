@@ -11,7 +11,6 @@ export class ContentComponent implements OnInit {
   items: any[] = [];
   filteredItems: any[] = [];
   paginatedItems: any[] = [];
-  // showCategories: boolean = false;
   searchTerm: string = '';
   showSortMenu: boolean = false;
   selectedCategories: any = {
@@ -44,6 +43,7 @@ export class ContentComponent implements OnInit {
   }
 
   sortItems(order: string): void {
+    console.log('Before sorting:', this.filteredItems);
     this.filteredItems.sort((a, b) => {
       if (order === 'asc') {
         return a.name.localeCompare(b.name);
@@ -51,8 +51,11 @@ export class ContentComponent implements OnInit {
         return b.name.localeCompare(a.name);
       }
     });
+    console.log('After sorting:', this.filteredItems);
     this.showSortMenu = false;
+    this.updatePagination(); 
   }
+  
 
   getSearchResults(): void {
     let results = [...this.items];
