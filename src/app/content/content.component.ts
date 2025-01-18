@@ -58,6 +58,7 @@ export class ContentComponent implements OnInit {
   
 
   getSearchResults(): void {
+    this.page = 1;
     let results = [...this.items];
 
     if (Object.values(this.selectedCategories).some(value => value)) {
