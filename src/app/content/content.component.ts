@@ -14,7 +14,7 @@ export class ContentComponent implements OnInit {
   filteredItems: any[] = [];
   paginatedItems: any[] = [];
   searchTerm: string = '';
-  searchTermSubject: Subject<string> = new Subject<string>(); // Subject for debouncing
+  searchTermSubject: Subject<string> = new Subject<string>();
   showSortMenu: boolean = false;
   selectedCategories: any = {
     'e-Voucher': false,
@@ -40,7 +40,6 @@ export class ContentComponent implements OnInit {
     this.updatePagination();
     this.updateSelectedCategoryCount();
 
-    // Subscribe to the search term subject with debounce
     this.searchTermSubject.pipe(debounceTime(200)).subscribe((searchTerm) => {
       this.searchTerm = searchTerm;
       this.getSearchResults();
@@ -66,7 +65,7 @@ export class ContentComponent implements OnInit {
   }
 
   onSearchTermChange(event: Event): void {
-    const target = event.target as HTMLInputElement; // Type assertion
+    const target = event.target as HTMLInputElement;
     if (target && target.value !== null) {
       this.searchTermSubject.next(target.value);
     }
