@@ -1,1 +1,79 @@
-/* You can add global styles to this file, and also import other style files */
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}/* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Style for the round checkboxes */
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* Makes the checkbox round */
+    border: 2px solid #ccc; /* Default light grey border */
+    background-color: white;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  /* When checkbox is selected */
+  input[type="checkbox"]:checked {
+    background-color: #ff4d4d; /* Red color when checked */
+    border-color: #ff4d4d; /* Red border */
+  }
+  
+  /* Adjust the tick mark */
+  input[type="checkbox"]:checked::before {
+    content: '\f00c'; /* Unicode for check mark */
+    font-family: FontAwesome;
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    top: 2px; /* Adjusts the position of the check mark */
+    left: 5px; /* Adjusts the position of the check mark */
+  }
+  
+  /* Optional: Add hover effect */
+  input[type="checkbox"]:hover {
+    border-color: #ff4d4d; /* Show red border on hover */
+  }
+  
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+mat-accordion {
+    border-radius: 4px; /* Adjust this value to get the desired sharpness */
+  }
+  
+  /* Make each expansion panel have less rounded corners */
+  mat-expansion-panel {
+    border-radius: 4px !important;  /* Adjust this value to get the desired sharpness */
+    box-shadow: none !important;    /* Optional: removes any shadow */
+  }
+  
+/* Optional: Make the panel header have less rounded corners */
+mat-expansion-panel-header {
+    border-radius: 4px !important;  /* Adjust this value to get the desired sharpness */
+    background-color: #f8f9fa; /* Optional: set the header background color */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Adding subtle shadow */
+  }
+  
+  

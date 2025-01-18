@@ -1,0 +1,43 @@
+/* Style for the overall layout */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1200px;
+    // padding: 20px;
+  }
+  
+  /* Banner styling */
+  .banner {
+    width: 100%;
+    margin: 0px;
+    padding: 25px 12px 12px 12px;
+  }
+  
+  .banner img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Content Section Styling */
+  .page-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .content-container {
+      padding: 10px;
+    }
+  
+    .banner img {
+      border-radius: 5px;
+    }
+  }
+  

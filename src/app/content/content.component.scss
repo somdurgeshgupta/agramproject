@@ -1,0 +1,81 @@
+.content {
+    padding: 20px;
+  }
+  
+  .search-bar input {
+    height: 50px;
+    font-size: 16px;
+  }
+  
+  .categories h5 {
+    margin-bottom: 20px;
+  }
+  
+  .items .card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .items .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .sort-menu button {
+    font-size: 14px;
+  }
+  
+  .with-icon {
+    padding-left: 30px; /* Adjust space for the icon */
+    background-color: #fff;
+    font-family: "Font Awesome 5 Free", "Font Awesome", sans-serif;
+    font-weight: 900;
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    line-height: 1.5;
+  }
+  
+  .with-icon::placeholder {
+    padding-left: 30px; /* Align placeholder with the icon */
+  }
+  
+  .no-border .list-group-item {
+    border: none; /* Remove the border between items */
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .card-body {
+    padding-bottom: 0; /* Remove padding at the bottom of the card */
+  }
+  
+  .card {
+    border-radius: 0; /* Optional: Makes the card edges less rounded */
+  }
+  
+  
+  /* Align checkbox to the right */
+  .categories .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+
+  
+  .rotated {
+    transform: rotate(180deg);
+  }
+  
+  .mat-expansion-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .mat-icon {
+    transition: transform 0.3s;
+  }
+  
+  /* Make the accordion corners less rounded */
