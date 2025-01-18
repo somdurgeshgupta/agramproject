@@ -26,7 +26,7 @@
   }
   
   .with-icon {
-    padding-left: 30px; /* Adjust space for the icon */
+    padding-left: 30px;
     background-color: #fff;
     font-family: "Font Awesome 5 Free", "Font Awesome", sans-serif;
     font-weight: 900;
@@ -37,25 +37,23 @@
   }
   
   .with-icon::placeholder {
-    padding-left: 30px; /* Align placeholder with the icon */
+    padding-left: 30px; 
   }
   
   .no-border .list-group-item {
-    border: none; /* Remove the border between items */
+    border: none; 
     padding-left: 0;
     padding-right: 0;
   }
   
   .card-body {
-    padding-bottom: 0; /* Remove padding at the bottom of the card */
+    padding-bottom: 0; 
   }
   
   .card {
-    border-radius: 0; /* Optional: Makes the card edges less rounded */
+    border-radius: 0; 
   }
   
-  
-  /* Align checkbox to the right */
   .categories .list-group-item {
     display: flex;
     justify-content: space-between;
@@ -78,4 +76,3 @@
     transition: transform 0.3s;
   }
   
-  /* Make the accordion corners less rounded */
